@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <div class="logo"></div>
+    <div class="content">
+      {{ content|safe }}
+      <hr>
+      <p>Order-tron is &copy;2020 Ian Morrill under the MIT License.</p>
+      <p>The term 'Etsy' is a trademark of Etsy, Inc. This application uses the Etsy API but is not endorsed or certified by Etsy.</p>
+    </div>
+  </div>
+</body>
+</html>

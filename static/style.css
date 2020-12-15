@@ -1,0 +1,85 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.container {
+  display: block;
+  width: 100vw;
+  margin: 0 0;
+}
+
+.container > .logo {
+  width: 100vw;
+  height: 60pt;
+  background-image: url(/static/img/SmallLogo.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 236pt 56pt;
+}
+
+.container > .content {
+  width: calc(100vw - 20pt);
+  margin: 0 auto;
+}
+
+@media screen {
+  .title {
+    font-weight: normal;
+  }
+
+  .title .order {
+    font-family: "Noteworthy", cursive;
+  }
+
+  .title .tron {
+    font-family: "Menlo", monospace;
+  }
+
+  @media screen and (max-width: 550pt)  {
+    .title {
+      display: none;
+    }
+  }
+}
+
+@media speech {
+  .title {
+    display: block;
+  }
+}
+
+@media (min-width: 550pt) {
+  .container:not(.fluid) {
+    display: flex;
+    width: 90vw;
+    margin: 0 auto;
+  }
+  
+  .container:not(.fluid) > .logo {
+    width: 220pt;
+    height: 280pt;
+    background-image: url(/static/img/LargeLogo.png);
+    background-size: 200pt 260pt;
+  }
+  
+  .container:not(.fluid) > .content {
+    flex: 1;
+    margin: 0 0;
+  }
+}
+
+.btn {
+  padding: 5pt 7pt;
+  border-radius: 3pt;
+  background-color: #aaaaaa;
+  color: #000;
+  cursor: pointer;
+  border: 0;
+  display: inline-block;
+}

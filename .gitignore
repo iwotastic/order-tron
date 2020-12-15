@@ -2,3 +2,5 @@ venv/*
 *.pyc
 .vscode
 __pycache__
+env.json
+*.afdesign
