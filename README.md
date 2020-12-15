@@ -1,9 +1,9 @@
-<h1 align="center">
+<div align="center">
 <img src="static/img/SmallLogo.png" alt="Order-tron">
-</h1>
+</div>
 <p align="center">Order-tron helps you view Etsy order information for your shop and export it to many formats.</p>
 
-## Development instructions
+# Development instructions
 To get started, run the following commands:
 ```bash
 # Execute this to make a venv
@@ -30,7 +30,7 @@ Once you've done that, you are ready to run Order-tron! Just run the following (
 ```
 If this command doesn't error out, that means you have successfully set up Order-tron. Flask will helpfully point out the URL to type to access your local Order-tron set-up.
 
-## Legal Info & Disclaimers
-Order-tron is &copy;2020 Ian Morrill under the MIT License.
+# Legal Info & Disclaimers
+Order-tron is &copy;2020 Ian Morrill under the [MIT License](/LICSENSE).
 
 The term 'Etsy' is a trademark of Etsy, Inc. This application uses the Etsy API but is not endorsed or certified by Etsy.
