@@ -14,7 +14,7 @@ def get_started():
   new_session = sessions.create()
   resp = make_response(
     render_page(
-      "get-started.html",
+      "get_started.html",
       "Get Started With Order-tron",
       login_url=new_session.get_login_url()
     )
@@ -33,7 +33,7 @@ def callback():
     request.args["oauth_verifier"]
   )
 
-  return render_template("callback-redirect.html", redir_url=url_for("authenticated.home"))
+  return render_template("callback_redirect.html", redir_url=url_for("authenticated.home"))
 
 app.register_blueprint(authenticated.bp)
 
