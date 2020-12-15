@@ -1,1 +1,6 @@
 <h1>Welcome, {{ user_data["first_name"] }} {{ user_data["last_name"] }}!</h1>
+{% if user_data["is_seller"] %}
+<p>Horray you're a seller!</p>
+{% else %}
+<p>It appears that you do not have a shop on Etsy yet. Order-tron is made to help sellers manage and export order information. As such, Order-tron isn't going to be very useful to you. Sorry.</p>
+{% endif %}
