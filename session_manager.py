@@ -11,6 +11,9 @@ class SessionManager:
     self._sessions[new_session.id] = new_session
     return new_session
 
+  def delete(self, session):
+    del self._sessions[session.id]
+
   def __getitem__(self, session_id):
     return self._sessions[UUID(session_id)]
 

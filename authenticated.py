@@ -34,3 +34,9 @@ def home():
     "user_home.html", "Order-tron - Home", 
     user_data=session.user_profile()
   )
+
+@bp.route("/log-out")
+def log_out():
+  session = require_session()
+  sessions.delete(session)
+  return redirect(url_for("index"))
