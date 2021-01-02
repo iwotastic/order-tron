@@ -31,7 +31,8 @@ def no_session(err):
 def home():
   session = require_session()
   return render_page(
-    "user_home.html", "Order-tron - Home", 
+    "user_home.html", "Order-tron - Home",
+    authenticated=True,
     user_data=session.user_profile()
   )
 
