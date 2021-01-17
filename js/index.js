@@ -1,8 +1,6 @@
 const $ = q => document.querySelector(q)
 
 let pageNumber = 0
-const greenDaysInTransit = 6
-const yellowDaysInTransit = 11
 
 const refresh = async function () {
   $("#table").innerHTML = "Please wait, loading..."
