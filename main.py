@@ -1,4 +1,4 @@
-from flask import abort, Flask, make_response, render_template, request, url_for
+from flask import abort, Flask, make_response, render_template, request, redirect, url_for
 from session_manager import sessions
 from utils import render_page
 import authenticated
@@ -12,6 +12,9 @@ def index():
 
 @app.route("/get-started")
 def get_started():
+  """This route prepares a new OAuth session with Etsy, this is basically the
+  closest thing to a log-in screen Order-tron has.
+  """
   new_session = sessions.create()
   resp = make_response(
     render_page(
@@ -25,6 +28,9 @@ def get_started():
 
 @app.route("/callback")
 def callback():
+  """This route is the OAuth callback, it finalizes the "link" with the new
+  user. It then redirects to the authenticated user homepage.
+  """
   session_id = request.cookies["session_id"]
   if session_id not in sessions:
     abort(400)
@@ -34,7 +40,7 @@ def callback():
     request.args["oauth_verifier"]
   )
 
-  return render_template("callback_redirect.html", redir_url=url_for("authenticated.home"))
+  return redirect(url_for("authenticated.home"))
 
 app.register_blueprint(authenticated.bp)
 app.register_blueprint(tables.order_overview.bp("order_overview"))
