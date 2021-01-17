@@ -1,6 +1,7 @@
 from flask import abort, Blueprint, g, redirect, request, url_for
 from session_manager import sessions
 from utils import render_page
+import tables
 
 bp = Blueprint("authenticated", __name__, url_prefix="/app")
 
@@ -12,8 +13,7 @@ def before_request():
   else:
     g.session = None
 
-class SessionRequiredException(Exception):
-  pass
+class SessionRequiredException(Exception): pass
 
 def require_session():
   if not g.session:
@@ -30,11 +30,21 @@ def no_session(err):
 @bp.route("/")
 def home():
   session = require_session()
-  return render_page(
-    "user_home.html", "Order-tron - Home",
-    authenticated=True,
-    user_data=session.user_profile()
-  )
+
+  user_data = session.user_profile()
+  if user_data["is_seller"]:
+
+    return render_page(
+      "seller_home.html", "Order-tron - Home",
+      authenticated=True,
+      user_data=user_data
+    )
+  else:
+    return render_page(
+      "user_home.html", "Order-tron - Home",
+      authenticated=True,
+      user_data=user_data
+    )
 
 @bp.route("/log-out")
 def log_out():

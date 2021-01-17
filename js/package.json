@@ -1,0 +1,15 @@
+{
+  "name": "ordertron-js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "JavaScript that runs on order-tron.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup index.js --file ../static/index.js"
+  },
+  "author": "Ian M",
+  "license": "MIT",
+  "devDependencies": {
+    "rollup": "^2.36.1"
+  }
+}

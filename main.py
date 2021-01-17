@@ -2,6 +2,7 @@ from flask import abort, Flask, make_response, render_template, request, url_for
 from session_manager import sessions
 from utils import render_page
 import authenticated
+import tables
 
 app = Flask(__name__)
 
@@ -36,6 +37,7 @@ def callback():
   return render_template("callback_redirect.html", redir_url=url_for("authenticated.home"))
 
 app.register_blueprint(authenticated.bp)
+app.register_blueprint(tables.order_overview.bp("order_overview"))
 
 if __name__ == "__main__":
-  app.run()
+  app.run(debug=True)

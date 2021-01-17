@@ -4,7 +4,7 @@ import urllib.parse
 from uuid import uuid4
 
 callback_uri = "http://127.0.0.1:5000/callback"
-scopes = ["email_r"]
+scopes = ["email_r", "transactions_r"]
 
 scopes_str = urllib.parse.quote(" ".join(scopes))
 
@@ -53,3 +53,13 @@ class Session:
       self._user_data = resp.json()["results"][0]
 
     return self._user_data
+
+  def transactions(self, page=0):
+    return self._oauth_session.get(
+      f"https://openapi.etsy.com/v2/shops/__SELF__/transactions?limit=40&offset={page * 40}"
+    ).json()["results"]
+
+  def receipts(self, page=0):
+    return self._oauth_session.get(
+      f"https://openapi.etsy.com/v2/shops/__SELF__/receipts?limit=40&offset={page * 40}"
+    ).json()["results"]

@@ -166,3 +166,29 @@ body {
   border: 0;
   display: inline-block;
 }
+
+/* Table styles */
+table {
+  border-collapse: collapse;
+}
+
+td:not(:last-child) {
+  border-right: 1pt solid #000;
+}
+
+thead {
+  background-color: #333;
+  color: #fff;
+}
+
+th, td {
+  text-align: left;
+}
+
+tr:not(:last-child) {
+  border-bottom: 1pt solid #000;
+}
+
+tr:nth-child(2n) {
+  background-color: #aaaaaa;
+}
